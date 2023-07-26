@@ -1,5 +1,6 @@
 package com.pluralsight.javaproject.cli;
 
+import com.pluralsight.javaproject.cli.service.CourseRetrievalService;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
@@ -28,11 +29,19 @@ public class CourseRetriever {
     private static void retrieveCourses(String authorId) {
        System.out.println("Retrieving courses for author "+ authorId);
        LOG.info("retrieving courses using the logging interface for the author "+ authorId);
+       CourseRetrievalService courseRetrievalService =  new CourseRetrievalService();
+
+       //calling the method
+        String coursesToStore = courseRetrievalService.getCoursesFor(authorId);
+        LOG.info("retrieved the required courses");
     }
 
 
     //after introducing spf4j-api dependancy
     //setting up a logger
+
+    //working with the http webclient API
+    //creating class courseretrieval service
 
 
 
