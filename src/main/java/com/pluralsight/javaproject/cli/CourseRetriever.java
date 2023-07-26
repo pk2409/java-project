@@ -33,7 +33,7 @@ public class CourseRetriever {
 
        //calling the method
         String coursesToStore = courseRetrievalService.getCoursesFor(authorId);
-        LOG.info("retrieved the required courses");
+        LOG.info("retrieved the required courses {}",coursesToStore);
     }
 
 
