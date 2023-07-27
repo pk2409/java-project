@@ -1,8 +1,11 @@
 package com.pluralsight.javaproject.cli;
 
 import com.pluralsight.javaproject.cli.service.CourseRetrievalService;
+import com.pluralsight.javaproject.cli.service.PluralsightCourse;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+
+import java.util.List;
 
 //import java.util.logging.Logger;
 
@@ -19,6 +22,10 @@ public class CourseRetriever {
        }
        try{
            retrieveCourses(args[0]);
+           // calling our pluralsightcourse record over here instead
+//           PluralsightCourse course= new PluralsightCourse("id","title","00:54:57","https://url",false);
+//           //once record is established it is immutable and values cannot be changed
+//           LOG.info("course :{} ",course);
        } catch(Exception e){
 //           System.out.println("an unexpected error occurs over here");
            LOG.error("unexcpected error occurs",e);
@@ -32,7 +39,7 @@ public class CourseRetriever {
        CourseRetrievalService courseRetrievalService =  new CourseRetrievalService();
 
        //calling the method
-        String coursesToStore = courseRetrievalService.getCoursesFor(authorId);
+        List<PluralsightCourse> coursesToStore = courseRetrievalService.getCoursesFor(authorId);
         LOG.info("retrieved the required courses {}",coursesToStore);
     }
 
