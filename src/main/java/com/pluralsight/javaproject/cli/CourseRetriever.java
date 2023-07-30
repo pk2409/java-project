@@ -40,7 +40,7 @@ public class CourseRetriever {
 
        //calling the method
         List<PluralsightCourse> coursesToStore = courseRetrievalService.getCoursesFor(authorId);
-        LOG.info("retrieved the required courses {}",coursesToStore);
+        LOG.info("retrieved the following {} courses {}",coursesToStore.size(),coursesToStore);
     }
 
 
