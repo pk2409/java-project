@@ -13,6 +13,9 @@ import static java.util.function.Predicate.not;
 
 public class CourseRetriever {
     private static final Logger LOG=  LoggerFactory.getLogger(CourseRetriever.class);
+    //to find or create a logger with name defined as the parameter. it returns a suitable logger
+    //The LoggerFactory is a utility class producing Loggers for various logging APIs.
+    //This method accepts a string value representing a name and returns a Logger object with the specified name
 
    public static void main( String args[]){
        System.out.println("providing the course info over here");

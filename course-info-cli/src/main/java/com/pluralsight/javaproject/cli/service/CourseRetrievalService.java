@@ -77,3 +77,7 @@ public class CourseRetrievalService {
     }
     //due to arrow syntax we dont have to add return syntax for the switch case
 }
+
+//refactoring to multiple maven modules
+//code in another module cannot be used unless an explicit dependancy is declared for it
+//can share config across submodules by defining them in the parent POM
