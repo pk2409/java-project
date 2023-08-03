@@ -49,6 +49,8 @@ public class CourseRetrievalService {
             .build();
 //            .newHttpClient();
 
+
+    //ObjectMapper class  provides functionality for reading and writing JSON,
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
 

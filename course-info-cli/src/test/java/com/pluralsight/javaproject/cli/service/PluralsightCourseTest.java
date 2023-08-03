@@ -16,6 +16,12 @@ class PluralsightCourseTest {
             """)
     //it will convert 68,5 and0 to long type for the expected value that we pass
     //into our method
+
+    //CsvSource is an ArgumentsSource which reads comma-separated values (CSV) from one or more CSV records
+        // supplied via the value() attribute or textBlock() attribute. The supplied values will be
+        // provided as arguments to the annotated @ParameterizedTest method.
+
+
     void durationInMinutes(String input,long expected) {
         PluralsightCourse course =
                 new PluralsightCourse("id","Test Course",input,"url",false);

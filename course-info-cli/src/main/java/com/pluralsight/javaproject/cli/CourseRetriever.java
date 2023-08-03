@@ -43,6 +43,8 @@ public class CourseRetriever {
        LOG.info("retrieving courses using the logging interface for the author "+ authorId);
        CourseRetrievalService courseRetrievalService =  new CourseRetrievalService();
 
+       //The List interface is found in java.util package and inherits the Collection interface
+
        //filtering the already retired courses
         List<PluralsightCourse> coursesToStore = courseRetrievalService.getCoursesFor(authorId)
                 .stream()
