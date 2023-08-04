@@ -64,6 +64,17 @@ public class CourseRetriever {
     //working with the http webclient API
     //creating class courseretrieval service
 
+    //H2 is a database that is an embedded SQL databse in java meaning that we dont have to install a seperate database to use that
+    //can introduce H2 as a library in our application and it can run alongside the application in the same process
+    //H2 writes all data to disk in teh file
+    //acts as a normal SQL database server
+    //H2 also has a mode where other applications can connect to this embedded databse running in our application
+    //called as the auto server mode
+    //JDBC is part of standardized library and can connect to any SQL database in a standardized manner as long as teh database has a JDBC driver
+    //JDBC= java databse connectivity; a standardized java API to connect to any SQL databases
+    //hibernate offers object relational mapping
+
+
 
 
 }
