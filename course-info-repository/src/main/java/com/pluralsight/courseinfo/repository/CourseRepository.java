@@ -8,7 +8,7 @@ public interface CourseRepository {
 
     void saveCourse(Course course);
 
-    List<Course> getAllCourses();
+    List<Course> getAllCourses() throws RepositoryException;
 }
 
 //the interface is completely expressed in terms of our course domain project
