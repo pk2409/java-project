@@ -8,7 +8,11 @@ public interface CourseRepository {
 
     void saveCourse(Course course);
 
-    List<Course> getAllCourses() throws RepositoryException;
+    List<Course> getAllCourses();
+
+    static CourseRepository openCourseRepository(String databaseFile){
+        return new CourseJdbcRepository(databaseFile);
+    }
 }
 
 //the interface is completely expressed in terms of our course domain project

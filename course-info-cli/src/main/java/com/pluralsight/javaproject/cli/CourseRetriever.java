@@ -1,6 +1,8 @@
 package com.pluralsight.javaproject.cli;
 
+import com.pluralsight.courseinfo.repository.CourseRepository;
 import com.pluralsight.javaproject.cli.service.CourseRetrievalService;
+import com.pluralsight.javaproject.cli.service.CourseStorageService;
 import com.pluralsight.javaproject.cli.service.PluralsightCourse;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
@@ -43,6 +45,10 @@ public class CourseRetriever {
        LOG.info("retrieving courses using the logging interface for the author "+ authorId);
        CourseRetrievalService courseRetrievalService =  new CourseRetrievalService();
 
+        CourseRepository courseRepository =CourseRepository.openCourseRepository("./courses.db");
+        CourseStorageService courseStorageService = new CourseStorageService(courseRepository);
+
+
        //The List interface is found in java.util package and inherits the Collection interface
 
        //filtering the already retired courses
@@ -55,6 +61,8 @@ public class CourseRetriever {
        //calling the method
 //        List<PluralsightCourse> coursesToStore = courseRetrievalService.getCoursesFor(authorId);
         LOG.info("retrieved the following {} courses {}",coursesToStore.size(),coursesToStore);
+        courseStorageService.storePluralsightCourses(coursesToStore);
+        LOG.info("Courses are successfully stored");
     }
 
 

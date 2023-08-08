@@ -1,6 +1,7 @@
 package com.pluralsight.courseinfo.repository;
 
 import com.pluralsight.courseinfo.domain.Course;
+//import org.h2.jdbc.JdbcDataSource;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -68,3 +69,9 @@ import java.util.List;
         }
     }
 }
+
+//need to work on the jdbc datasource imports
+//import org.h2.jdbc.JdbcDataSource; is the given statemnet which is showing an error
+//need to figure out how to work with the database
+//due to this teh coursestroageservicetest.java is not working either
+//courserepository.java upon running also shows an error due to the same reason.
