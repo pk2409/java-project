@@ -1,6 +1,7 @@
 package com.pluralsight.courseinfo.repository;
 
 import com.pluralsight.courseinfo.domain.Course;
+import org.h2.jdbcx.JdbcDataSource;
 //import org.h2.jdbc.JdbcDataSource;
 
 import javax.sql.DataSource;
@@ -75,3 +76,7 @@ import java.util.List;
 //need to figure out how to work with the database
 //due to this teh coursestroageservicetest.java is not working either
 //courserepository.java upon running also shows an error due to the same reason.
+
+
+//JAX-RS is an API specification
+//using eclipse jersey which is JAX-RS  implementation
