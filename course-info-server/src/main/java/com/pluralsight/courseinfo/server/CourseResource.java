@@ -16,6 +16,10 @@ public class CourseResource {
        this.courseRepository=courseRepository;
    }
 
+
+
+
+   @GET
    public String getCourses(){
        return courseRepository
                .getAllCourses()
