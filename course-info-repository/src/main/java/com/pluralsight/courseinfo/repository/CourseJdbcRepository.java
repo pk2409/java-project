@@ -30,12 +30,12 @@ import java.util.List;
         this.dataSource=jdbcDataSource;
     }
     @Override
-    public void saveCourse(Course course){
+    public void saveCourse(Course course) throws RepositoryException {
         try (Connection connection = dataSource.getConnection()){
             PreparedStatement statement = connection.prepareStatement(INSERT_COURSE);
             statement.setString(1, course.id());
             statement.setString(2, course.name());
-            statement.setString(3, course.length());
+//            statement.setString(3, course.length());
             statement.setString(4, course.url());
             statement.execute();
         }catch(SQLException e){
