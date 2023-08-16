@@ -2,6 +2,7 @@ package com.pluralsight.javaproject.cli.service;
 
 import com.pluralsight.courseinfo.domain.Course;
 import com.pluralsight.courseinfo.repository.CourseRepository;
+import com.pluralsight.courseinfo.repository.RepositoryException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CourseStorageServiceTest {
 
     @Test
-    void storePluralsightCourses() {
+    void storePluralsightCourses() throws RepositoryException {
         CourseRepository repository= new InMemoryCourseRepository();
 
         CourseStorageService courseStorageService= new CourseStorageService(repository);

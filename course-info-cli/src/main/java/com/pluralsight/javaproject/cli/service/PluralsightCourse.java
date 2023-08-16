@@ -29,7 +29,7 @@ public record PluralsightCourse(String id, String title,String duration,String c
 //the repository pattern allows us to hide the implementation details
 //so that consumers of the repo API can write clean code
 //the API of the repository can be expressed completely in terms of the domain objects
-//can also change the implemnetation without affecting consumers of repo API
+//can also change the implementation without affecting consumers of repo API
 //intro of API makes the system more testable
 //JDBC: for relational database connectivity API
 //the H2 database provides a JDBC driver as do almost all databases

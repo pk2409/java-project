@@ -72,11 +72,21 @@ import java.util.List;
 }
 
 //need to work on the jdbc datasource imports
-//import org.h2.jdbc.JdbcDataSource; is the given statemnet which is showing an error
+//import org.h2.jdbc.JdbcDataSource; is the given statement which is showing an error
 //need to figure out how to work with the database
-//due to this teh coursestroageservicetest.java is not working either
+//due to this the coursestorageservicetest.java is not working either
 //courserepository.java upon running also shows an error due to the same reason.
 
 
 //JAX-RS is an API specification
 //using eclipse jersey which is JAX-RS  implementation
+
+
+//A Data Source object enables JDBC applications to obtain a DBMS connection from a connection pool
+//A DataSource object holds the credentials needed to get a connection to the database.
+//JDBC is java database connectivity
+//It is used to write programs required to access databases.
+//JDBC is an API used to access databases
+//RepositoryException: This exception indicates that an error occurred while performing a Repository task
+//This exception indicates that a severe error occured while performing a Repository task
+

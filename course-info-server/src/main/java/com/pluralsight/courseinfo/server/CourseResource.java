@@ -61,5 +61,16 @@ public class CourseResource {
     //need to solve the error due to which teh  JSON file is not visible
 
 
+    //The @Produces annotation is used to specify the MIME media types or representations
+    // a resource can produce and send back to the client
+    //@path is used for An object that may be used to locate a file in a file system.
+    // It will typically represent a system dependent file path
+    // java.util.Comparator is A comparison function, which imposes a total ordering on some collection of objects.
+
+
+
+
+
+
 
 }
