@@ -2,21 +2,23 @@ package com.pluralsight.courseinfo.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CourseTest {
 
     @Test
     void rejectNullComponents(){
-        assertThrowsExactly(IllegalArgumentException.class,() ->
-                new Course(null,null,1,null));
+        assertThrows(IllegalArgumentException.class,() ->
+                new Course(null,null,1,null,Optional.empty()));
 
     }
 
     @Test
     void rejectBlankNotes(){
-        assertThrows(IllegalException.class,()->
-                new Course("1","",1,"url"));
+        assertThrows(IllegalArgumentException.class,()->
+                new Course("1","title",1,"url",Optional.of("")));
     }
 
 }

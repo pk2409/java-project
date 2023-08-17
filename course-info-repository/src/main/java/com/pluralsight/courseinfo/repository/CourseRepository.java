@@ -10,7 +10,10 @@ public interface CourseRepository {
 
     List<Course> getAllCourses() throws RepositoryException;
 
+    void addNotes(String id,String notes) throws RepositoryException;
+
     static CourseRepository openCourseRepository(String databaseFile){
+
         return new CourseJdbcRepository(databaseFile);
     }
 }
