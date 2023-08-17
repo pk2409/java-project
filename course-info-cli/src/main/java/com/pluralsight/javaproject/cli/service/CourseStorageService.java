@@ -4,6 +4,7 @@ import com.pluralsight.courseinfo.domain.Course;
 import com.pluralsight.courseinfo.repository.CourseRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CourseStorageService {
     private final CourseRepository courseRepository;
@@ -17,7 +18,7 @@ public class CourseStorageService {
         for(PluralsightCourse psCourse){
             Course course = new Course(psCourse.id(),
                     psCourse.title(), psCourses.durationInMinutes(),
-            PS_BASE_URL + psCourses.contentUrl());
+            PS_BASE_URL + psCourses.contentUrl(), Optional.empty());
             courseRepository.saveCourse(course);
         }
     }

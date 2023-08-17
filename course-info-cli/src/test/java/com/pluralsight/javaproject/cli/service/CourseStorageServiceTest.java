@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +23,7 @@ class CourseStorageServiceTest {
 
         courseStorageService.storePluralsightCourses(List.of(ps1));
 
-        Course expected = new Course("1","Title 1",100,"https://app.pluralsight.com/url-1");
+        Course expected = new Course("1","Title 1",100,"https://app.pluralsight.com/url-1", Optional.empty());
         assertEquals(List.of(expected),repository.getAllCourses());
     }
 
