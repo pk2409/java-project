@@ -3,10 +3,7 @@ package com.pluralsight.courseinfo.server;
 import com.pluralsight.courseinfo.domain.Course;
 import com.pluralsight.courseinfo.repository.CourseRepository;
 import com.pluralsight.courseinfo.repository.RepositoryException;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.NotFoundException;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +39,26 @@ public class CourseResource {
            throw new NotFoundException();
        }
    }
+
+   //beacuse we want user to use Http POST to reach our function
+    @POST
+    @Path("/{id}/notes")
+    @Consumes(MediaType.TEXT_PLAIN)
+   public void addNotes(@PathParam("id") String id,String notes){
+       courseRepository.addNotes(id,notes);
+
+
+   }
+   //this endpoint will act the opposite to the endpoint we already had
+    //so it does not return any information, it will have a void return type
+    //the notes parameter is filled with the body of the Http POST request that we receive here
+    //these annotations are all required to steer the jersey implementation into the right direction
+    //cannot use the browser like we used for the GET request
+    //we use a command line tool called curl
+    //which can be used to craft Http requests from the command line
+
+
+
 //have to sort the error
     //repository exception is providing error and not letting
     //the application run
