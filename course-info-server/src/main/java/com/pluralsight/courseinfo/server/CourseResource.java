@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Path("/courses")
 public class CourseResource {
@@ -27,13 +28,12 @@ public class CourseResource {
 
    @GET
    @Produces(MediaType.APPLICATION_JSON)
-   public List<Course> getCourses(){
+   public Stream<Course> getCourses(){
        try {
            return courseRepository
                    .getAllCourses()
                    .stream()
-                   .sorted(Comparator.comparing(Course::id))
-                   .toList();
+                   .sorted(Comparator.comparing(Course::id));
        }catch(RepositoryException e){
            LOG.error("could not retrieve courses from the database",e);
            throw new NotFoundException();
@@ -84,6 +84,19 @@ public class CourseResource {
     // It will typically represent a system dependent file path
     // java.util.Comparator is A comparison function, which imposes a total ordering on some collection of objects.
 
+    //with an http GET request, we returned the stored courses as JSON
+    //through a POST request , we can dd notes to an existing course
+    // JAX-RS is an annotation driven API, we can instruct code to work in certain ways in a declarative manner
+
+    //ship the course-info server as a single self-contained JAR file
+    //UNIFIED LOGGING
+    //currently, course-info server has two different logging formats
+    //because we are using SLF4J as a single frontend to our logging
+    //all of the statements that we log , will eb logged by the simple logging backend that we use
+    //also using external libraries such as jersey for our rest API
+    //jersey uses JDK logging for its internal logging
+    //SLF4J logging is formatted in a single line
+    //whereas the JDK logging is spread over two lines
 
 
 
