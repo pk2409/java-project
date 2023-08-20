@@ -97,6 +97,16 @@ public class CourseResource {
     //jersey uses JDK logging for its internal logging
     //SLF4J logging is formatted in a single line
     //whereas the JDK logging is spread over two lines
+    //it is a different logging API that uses different formatting
+    //many of the tools won't do partial log lines
+    //it is required to have a single format
+    //we can introduce a bridge library which will redirect the JDK logging calls
+    //to the SLF4J library, anything used for JDK logging will be used for
+    //the slf4j logging backends that are provided
+    //JDK logging will still be there, but will not be used anymore in the code
+    //need to introduce jul which is java.util.logging to slf4j library
+
+
 
 
 
