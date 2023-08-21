@@ -112,3 +112,17 @@ class CourseJdbcRepository implements CourseRepository{
 //RepositoryException: This exception indicates that an error occurred while performing a Repository task
 //This exception indicates that a severe error occured while performing a Repository task
 
+//have sorted the jdbc dependency issue
+//had to clear out the version of teh jdbc datasource
+//using advanced java programming concepts book
+//pluralsight course by sander mak
+//on building applications with java
+//we have course-info-cli
+//course-info-repository and course-info-server
+//also have pom.xml files of all of these
+//pom.xml files have to have the recent version of each of the dependencies
+//otherwise, the maven dependencies fail to reload
+//this has to be noted from the maven central repository
+//sometimes the dependencies take time to reload
+//it might show some error initially
+//but soon the files will be available in the external files library
