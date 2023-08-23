@@ -44,7 +44,7 @@ public class CourseResource {
     @POST
     @Path("/{id}/notes")
     @Consumes(MediaType.TEXT_PLAIN)
-   public void addNotes(@PathParam("id") String id,String notes){
+   public void addNotes(@PathParam("id") String id,String notes) throws RepositoryException {
        courseRepository.addNotes(id,notes);
 
 
