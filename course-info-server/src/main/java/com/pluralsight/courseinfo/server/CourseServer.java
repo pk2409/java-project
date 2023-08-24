@@ -4,7 +4,9 @@ import com.pluralsight.courseinfo.repository.CourseRepository;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.LoggerFactory;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.Properties;
@@ -44,7 +46,7 @@ private static final Logger LOG = (Logger) LoggerFactory.getLogger(CourseServer.
 
     public static void main(String... args ){
         String databaseFilename=loadDatabaseFilename();
-        LOG.info("starting the HTTP server {}" ,databaseFilename);
+        LOG.info("starting the HTTP server {}");
         CourseRepository courseRepository= CourseRepository.openCourseRepository(databaseFilename);
         ResourceConfig config = new ResourceConfig().register(new CourseResource(courseRepository));
 
