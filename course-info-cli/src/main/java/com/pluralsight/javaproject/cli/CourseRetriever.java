@@ -1,6 +1,7 @@
 package com.pluralsight.javaproject.cli;
 
 import com.pluralsight.courseinfo.repository.CourseRepository;
+import com.pluralsight.courseinfo.repository.RepositoryException;
 import com.pluralsight.javaproject.cli.service.CourseRetrievalService;
 import com.pluralsight.javaproject.cli.service.CourseStorageService;
 import com.pluralsight.javaproject.cli.service.PluralsightCourse;
@@ -29,18 +30,20 @@ public class CourseRetriever {
        }
        try{
            retrieveCourses(args[0]);
-           // calling our pluralsightcourse record over here instead
-//           PluralsightCourse course= new PluralsightCourse("id","title","00:54:57","https://url",false);
-//           //once record is established it is immutable and values cannot be changed
-//           LOG.info("course :{} ",course);
-       } catch(Exception e){
+       }catch(Exception e){
 //           System.out.println("an unexpected error occurs over here");
            LOG.error("unexcpected error occurs",e);
 //           e.printStackTrace();
+       } catch (RepositoryException e) {
+           throw new RuntimeException(e);
        }
    }
+    // calling our pluralsightcourse record over here instead
+//           PluralsightCourse course= new PluralsightCourse("id","title","00:54:57","https://url",false);
+//           //once record is established it is immutable and values cannot be changed
+//           LOG.info("course :{} ",course);
 
-    private static void retrieveCourses(String authorId) {
+    private static void retrieveCourses(String authorId) throws RepositoryException {
        System.out.println("Retrieving courses for author "+ authorId);
        LOG.info("retrieving courses using the logging interface for the author "+ authorId);
        CourseRetrievalService courseRetrievalService =  new CourseRetrievalService();
