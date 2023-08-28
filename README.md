@@ -31,3 +31,22 @@ handle the response provided.
         //externalising means to move configuration data out of code
         //we can use configuration files that can use configuration properties for the application
         //we can try to externalise the name of the database required
+
+
+//ship the course-info server as a single self-contained JAR file
+    //UNIFIED LOGGING
+    //currently, course-info server has two different logging formats
+    //because we are using SLF4J as a single frontend to our logging
+    //all of the statements that we log , will eb logged by the simple logging backend that we use
+    //also using external libraries such as jersey for our rest API
+    //jersey uses JDK logging for its internal logging
+    //SLF4J logging is formatted in a single line
+    //whereas the JDK logging is spread over two lines
+    //it is a different logging API that uses different formatting
+    //many of the tools won't do partial log lines
+    //it is required to have a single format
+    //we can introduce a bridge library which will redirect the JDK logging calls
+    //to the SLF4J library, anything used for JDK logging will be used for
+    //the slf4j logging backends that are provided
+    //JDK logging will still be there, but will not be used anymore in the code
+    //need to introduce jul which is java.util.logging to slf4j library
