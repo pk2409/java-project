@@ -18,9 +18,10 @@ public class CourseServer {
     //is loaded by the JVM
     //this is what is required so that it can be executed early on
     //in the lifecycle of our application
-    static{
+    static {
         LogManager.getLogManager().reset();
         SLF4JBridgeHandler.install();
+    }
         //it comes from the jul-to-slf4j  maven dependency. this bridge handler takes care of installing some hooks
         //into the JDK Logging API that were redirected to SLF4J
         //this code is executed very early before any of teh other code is executed
@@ -38,11 +39,10 @@ public class CourseServer {
         //we can try to externalise the name of the database required
 
 
-    }
+
 
 
 private static final Logger LOG = (Logger) LoggerFactory.getLogger(CourseServer.class);
-    private static String BASE_URI="http://localhost:8080/";
 
     public static void main(String... args ){
         String databaseFilename=loadDatabaseFilename();
@@ -50,6 +50,7 @@ private static final Logger LOG = (Logger) LoggerFactory.getLogger(CourseServer.
         CourseRepository courseRepository= CourseRepository.openCourseRepository(databaseFilename);
         ResourceConfig config = new ResourceConfig().register(new CourseResource(courseRepository));
 
+        String BASE_URI = "http://localhost:8080/";
         GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI),config);
     }
 
@@ -66,3 +67,17 @@ private static final Logger LOG = (Logger) LoggerFactory.getLogger(CourseServer.
         }
     }
 }
+
+//can use post-gres (production-grade database)
+//for high traffic and concurrent usage
+//can use jdbc driver for post-gres
+//can also introduce a new maven module
+//for java-based wrapper for course-info REST API
+//call the course-info system using java
+//call the courseinfo REST API over Http
+
+//java.lang.ExceptionInInitializerError
+//error due to LogManager, simplelogger cannot be cast, it is an unnamed module
+//not fixed by uniform slf4j version
+
+
