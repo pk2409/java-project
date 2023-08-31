@@ -50,3 +50,40 @@ handle the response provided.
     //the slf4j logging backends that are provided
     //JDK logging will still be there, but will not be used anymore in the code
     //need to introduce jul which is java.util.logging to slf4j library
+
+    
+//can use post-gres (production-grade database)
+//for high traffic and concurrent usage
+//can use jdbc driver for post-gres
+//can also introduce a new maven module
+//for java-based wrapper for course-info REST API
+//call the course-info system using java
+//call the courseinfo REST API over Http
+
+//java.lang.ExceptionInInitializerError
+//error due to LogManager, simplelogger cannot be cast, it is an unnamed module
+//not fixed by uniform slf4j version
+
+
+//adding notes into the course
+    //we are going to expose an endpoint in the course
+    //and endpoint into a particular course/{id}/notes
+    //where the body of teh POST request contains the notes
+    //through such a request, the notes will be added to the course with teh particular id
+    //we need to extend our course-info-repository implementation
+    //with a method that can add notes to a particular course
+    //through an SQL update statement
+    //also need to update our course domain class so that it can contain the notes
+    //used to update the repository to store course notes
+    //need to solve the error due to which teh  JSON file is not visible
+
+
+    //The @Produces annotation is used to specify the MIME media types or representations
+    // a resource can produce and send back to the client
+    //@path is used for An object that may be used to locate a file in a file system.
+    // It will typically represent a system dependent file path
+    // java.util.Comparator is A comparison function, which imposes a total ordering on some collection of objects.
+
+    //with an http GET request, we returned the stored courses as JSON
+    //through a POST request , we can dd notes to an existing course
+    // JAX-RS is an annotation driven API, we can instruct code to work in certain ways in a declarative manner
